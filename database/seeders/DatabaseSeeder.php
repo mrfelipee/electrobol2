@@ -25,6 +25,8 @@ class DatabaseSeeder extends Seeder
             TipopagoSeeder::class,
             ClienteSeeder::class,
             TecnicoSeeder::class,
+            UserSeeder::class,
+            RepuestoSeeder::class,
         ]);
     }
 }

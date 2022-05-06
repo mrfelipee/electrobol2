@@ -10,6 +10,7 @@
 @stop
 
 @section('content')
+   
     <div class="container">
         <form method="post" action="{{ route('contacto.update',$contacto) }}">
             {{ method_field('PATCH') }}
@@ -17,6 +18,7 @@
             @include('contacto.form')
             @include('include.boton')
         </form>
+           
             
     </div>
 @stop

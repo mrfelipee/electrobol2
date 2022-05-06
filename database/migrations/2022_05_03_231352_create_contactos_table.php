@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('contactos', function (Blueprint $table) {
             $table->id();
-            $table->string('contacto', 15);
+            $table->string('contacto', 25);
             $table->string('detalle', 50);
             $table->Biginteger('tipocontacto_id')->unsigned();
             $table->foreign('tipocontacto_id')->references('id')->on('tipocontactos')->onDelete('cascade');

@@ -6,16 +6,24 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>REPARACION CREAR</h1>
 @stop
 
 @section('content')
     <div class="container">
-        <form method="post" action="{{ route('reparacion.guardar') }}">
-            @csrf
-            @include('reparacion.form')
-            @include('include.boton')
-        </form>
+        
+         <div class="card">
+            <div class="card-header bg-black">
+                REAPARACION CREAR
+            </div>
+            <div class="card-body">
+                 <form method="post" action="{{ route('reparacion.guardar') }}">
+                    @csrf
+                    @include('reparacion.form')
+                    @include('include.boton')
+                </form>
+            </div>
+        </div>    
+        
             
     </div>
 @stop

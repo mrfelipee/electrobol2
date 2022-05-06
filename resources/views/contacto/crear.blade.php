@@ -6,17 +6,25 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>PERSONA CREAR</h1>
+    <h1>CONTACTO CREAR</h1>
 @stop
 
 @section('content')
     <div class="container">
-        <form method="post" action="{{ route('contacto.guardar') }}">
-            @csrf
-            @include('contacto.form')
-            @include('include.boton')
-        </form>
+       
             
+             <div class="card">
+                <div class="card-header bg-black">
+                    ARTICULO CREAR
+                </div>
+                <div class="card-body">
+                    <form method="post" action="{{ route('contacto.guardar') }}">
+                        @csrf
+                        @include('contacto.form')
+                        @include('include.boton')
+                    </form>
+                </div>
+            </div>
     </div>
 @stop
 

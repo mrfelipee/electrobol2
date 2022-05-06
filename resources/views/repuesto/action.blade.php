@@ -1,8 +1,8 @@
-<a href="{{ route('persona.edit',$id) }}" class="btn-accion-tabla tooltipsC mr-2 editar" title="Editar este motivo">
+<a href="" class="btn-accion-tabla tooltipsC mr-2 editar" title="Editar este motivo">
     <i class="fa fa-fw fa-edit text-primary"></i>
 </a>
 
-<a href="{{ route('persona.show',$id) }}" class="btn-accion-tabla tooltipsC mr-2 mostrar" title="Ver este tipomotivo">
+<a href="" class="btn-accion-tabla tooltipsC mr-2 mostrar" title="Ver este tipomotivo">
     <i class="fa fa-fw fa-eye text-primary"></i>
 </a>
 
@@ -14,6 +14,3 @@
     </button>
 </form>
 
-<a href="{{ route('contacto.index',$id) }}" class="btn-accion-tabla tooltipsC mr-2 mostrar" title="Ver este tipomotivo">
-    <i class="fa fa-fw fa-phone text-primary"></i>
-</a>

@@ -8,6 +8,7 @@ use App\Models\Marca;
 use App\Models\Articulo;
 use App\Models\Tecnico;
 use App\Models\Reparacion;
+use App\Models\Repuesto;
 use Illuminate\Support\Facades\DB;
 
 /*
@@ -51,6 +52,14 @@ Route::get('marcas', function () {
         ->rawColumns(['btn'])
         ->toJson();
 });
+
+Route::get('repuestos', function () {
+    return datatables()->of(Repuesto::get())
+        ->addColumn('btn', 'repuesto.action')
+        ->rawColumns(['btn'])
+        ->toJson();
+});
+
 Route::get('tipoarticulos', function () {
     return datatables()->of(Tipoarticulo::get())
         ->addColumn('btn', 'tipoarticulo.action')

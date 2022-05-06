@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>Electrobol</b>',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -229,7 +229,7 @@ return [
       
         ['header' => 'OPCIONES'],
         [
-            'text' => 'Personas',
+            'text' => 'Clientes',
             'url'  => 'personas',
             'icon' => 'fas fa-users',
         ],
@@ -243,34 +243,19 @@ return [
             'url'  => 'marcas',
             'icon' => 'fas fa-users',
         ],
-        [
-            'text' => 'Articulo',
-            'url'  => 'articulos',
-            'icon' => 'fas fa-users',
-        ],
-        [
-            'text' => 'Reparación',
-            'url'  => 'reparacions',
-            'icon' => 'fas fa-users',
-        ],
+
+       
         [
             'text' => 'Repuestos',
             'url'  => 'repuestos',
             'icon' => 'fas fa-users',
         ],
         [
-            'text' => 'Pagos',
-            'url'  => 'pagos',
+            'text' => 'Tipo de artículos',
+            'url'  => 'tipoarticulos',
             'icon' => 'fas fa-users',
         ],
-
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-       
-       
+      
     ],
 
     /*

@@ -10,6 +10,7 @@ use App\Http\Controllers\ReparacionController;
 use App\Http\Controllers\TecnicoController;
 use App\Http\Controllers\EvaluacionController;
 use App\Http\Controllers\PagoController;
+use App\Http\Controllers\RepuestoController;
 
 
 /*
@@ -40,13 +41,22 @@ Route::post('persona/guardar',[PersonaController::class,'store'])->name('persona
 Route::patch('persona/actualizar/{persona}',[PersonaController::class,'update'])->name('persona.update')->middleware('auth');
 Route::delete('eliminar/persona/{persona_id}',[PersonaController::class,'destroy'])->name('persona.destroy')->middleware('auth');
 
-Route::get('pagos',[pagoController::class,'index'])->name('pago.index')->middleware('auth');
-Route::get('pago/create/{reparacion_id}',[pagoController::class,'create'])->name('pago.create')->middleware('auth');
-Route::get('pago/edit/{pago}',[pagoController::class,'edit'])->name('pago.edit')->middleware('auth');
-Route::get('pago/show/{pago}',[pagoController::class,'show'])->name('pago.show')->middleware('auth');
-Route::post('pago/guardar',[pagoController::class,'store'])->name('pago.guardar')->middleware('auth');
-Route::patch('pago/actualizar/{pago}',[pagoController::class,'update'])->name('pago.update')->middleware('auth');
-Route::delete('eliminar/pago/{pago_id}',[pagoController::class,'destroy'])->name('pago.destroy')->middleware('auth');
+
+Route::get('repuestos',[RepuestoController::class,'index'])->name('repuesto.index')->middleware('auth');
+Route::get('repuesto/create',[RepuestoController::class,'create'])->name('repuesto.create')->middleware('auth');
+Route::get('repuesto/edit/{repuesto}',[RepuestoController::class,'edit'])->name('repuesto.edit')->middleware('auth');
+Route::get('repuesto/show/{repuesto}',[RepuestoController::class,'show'])->name('repuesto.show')->middleware('auth');
+Route::post('repuesto/guardar',[RepuestoController::class,'store'])->name('repuesto.guardar')->middleware('auth');
+Route::patch('repuesto/actualizar/{repuesto}',[RepuestoController::class,'update'])->name('repuesto.update')->middleware('auth');
+Route::delete('eliminar/repuesto/{repuesto_id}',[RepuestoController::class,'destroy'])->name('repuesto.destroy')->middleware('auth');
+
+Route::get('pagos',[PagoController::class,'index'])->name('pago.index')->middleware('auth');
+Route::get('pago/create/{reparacion_id}',[PagoController::class,'create'])->name('pago.create')->middleware('auth');
+Route::get('pago/edit/{pago}',[PagoController::class,'edit'])->name('pago.edit')->middleware('auth');
+Route::get('pago/show/{pago}',[PagoController::class,'show'])->name('pago.show')->middleware('auth');
+Route::post('pago/guardar',[PagoController::class,'store'])->name('pago.guardar')->middleware('auth');
+Route::patch('pago/actualizar/{pago}',[PagoController::class,'update'])->name('pago.update')->middleware('auth');
+Route::delete('eliminar/pago/{pago_id}',[PagoController::class,'destroy'])->name('pago.destroy')->middleware('auth');
 
 Route::get('tecnicos',[TecnicoController::class,'index'])->name('tecnico.index')->middleware('auth');
 Route::get('tecnico/create',[TecnicoController::class,'create'])->name('tecnico.create')->middleware('auth');

@@ -6,7 +6,6 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>ARTICULO CREAR</h1>
 @stop
 {{-- {{$cliente }} --}}
 @section('content')
@@ -14,7 +13,7 @@
         
             <div class="card">
                 <div class="card-header bg-black">
-                    ARTICULO CREATE
+                    ARTICULO CREAR
                 </div>
                 <div class="card-body">
                     <form method="post" action="{{ route('articulo.guardar') }}">

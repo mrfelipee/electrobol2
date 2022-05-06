@@ -7,7 +7,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>PERSONAS</h1>
+    <h1>REPUESTOS</h1>
 @stop
 
 @section('content')
@@ -20,18 +20,19 @@
         <div class="row">
             <div class="card">
                 <div class="card-header">
-                    <a href="{{route('persona.create')}}" class="btn btn-success"> <i class="fas fa-user-plus"></i> </a>
+                    <a href="{{route('repuesto.create')}}" class="btn btn-success"> <i class="fas fa-user-plus"></i> </a>
                 </div>
                 <div class="card-body">
                     
-                    <table id="personas" class="table table-light table-bordered table-hover table-striped">
+                    <table id="repuestos" class="table table-light table-bordered table-hover table-striped">
                         <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>NOMBRE</th>
-                                <th>APELLIDO</th>
-                                <th>DIRECCION</th>
-                                <th>CARNET</th>
+                                <th>MARCA</th>
+                                <th>SERIE</th>
+                                <th>STOCK</th>
+                                <th>DESCRIPCION</th>
                                 <th>OPCIONES</th>
                             </tr>
                         </thead>
@@ -53,19 +54,18 @@
     <script>
         $(document).ready(function() {
                 
-                var tabla=$('#personas').DataTable(
+                var tabla=$('#repuestos').DataTable(
                     {
                         "serverSide": true,
                         "responsive":true,
-                    
-
-                        "ajax": "{{ url('api/personas') }}",
+                        "ajax": "{{ url('api/repuestos') }}",
                         "columns": [
                             {"data": 'id',name:"id"},
                             {"data": "nombre",name:"nombre"}, 
-                            {"data": "apellidos",name:"apellidos"},
-                            {"data": "direccion",name:"direccion"},
-                            {"data": "carnet",name:"carnet"},
+                            {"data": "marca",name:"marca"},
+                            {"data": "serie",name:"serie"},
+                            {"data": "stock",name:"stock"},
+                            {"data": "descripcion",name:"descripcion"},
                             {
                                 "name":"btn",
                                 "data": 'btn',
@@ -78,83 +78,7 @@
                     }
                 );
         /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% E L I M I N A R  P E R S O N A %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
-                $('table').on('click','.eliminar',function (e) {
-                    e.preventDefault(); 
-                    id=$(this).parent().parent().parent().find('td').first().html();
-                    console.log(id);
-                    Swal.fire({
-                        title: 'Estas seguro(a) de eliminar este registro?',
-                        text: "Si eliminas el registro no lo podras recuperar jamás!",
-                        type: 'question',
-                        showCancelButton: true,
-                        showConfirmButton:true,
-                        confirmButtonColor: '#25ff80',
-                        cancelButtonColor: '#d33',
-                        confirmButtonText: 'Eliminar..!',
-                        position:'center',        
-                    }).then((result) => {
-                        if (result.value) {
-                            $.ajax({
-                                url: 'eliminar/persona/'+id,
-                                type: 'DELETE',
-                                data:{
-                                    id:id,
-                                    _token:'{{ csrf_token() }}'
-                                },
-                                success: function(result) {
-                                    console.log(result);
-                                    tabla.ajax.reload();
-                                    const Toast = Swal.mixin({
-                                    toast: true,
-                                    position: 'top-end',
-                                    showConfirmButton: false,
-                                    timer: 1500,
-                                    })
-                                    Toast.fire({
-                                        type: 'success',
-                                        title: 'Se eliminó correctamente el registro'
-                                    })   
-                                },
-                                error: function (xhr, ajaxOptions, thrownError) {
-                                    switch (xhr.status) {
-                                        case 500:
-                                            Swal.fire({
-                                                title: 'No se completó esta operación por que este registro está relacionado con otros registros',
-                                                showClass: {
-                                                    popup: 'animate__animated animate__fadeInDown'
-                                                },
-                                                hideClass: {
-                                                    popup: 'animate__animated animate__fadeOutUp'
-                                                }
-                                            })
-                                            break;
-                                    
-                                        default:
-                                            break;
-                                    }
-                                    
-                                }
-                            });
-                        }else{
-                            const Toast = Swal.mixin({
-                                toast: true,
-                                position: 'top-end',
-                                showConfirmButton: false,
-                                timer: 4000,
-                            //type
-                                onOpen: (toast) => {
-                                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                                }
-                            })
-
-                            Toast.fire({
-                                type: 'error',
-                                title: 'No se eliminó el registro'
-                            })
-                        }
-                    })
-                });
+              
             } );
     </script>
 @stop
