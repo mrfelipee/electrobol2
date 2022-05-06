@@ -12,4 +12,14 @@ class Cliente extends Model
     {
         return $this->belongsTo(Persona::class);
     } 
+
+    public function reparaciones()
+    {
+        return $this->hasMany(Reparacion::class);
+    }
+
+    public function articulos()
+    {
+        return $this->hasMany(Reparacion::class);
+    }
 }

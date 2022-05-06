@@ -11,10 +11,10 @@
 
 @section('content')
     <div class="container">
-        <form method="post" action="{{ route('persona.update',$persona) }}">
+        <form method="post" action="{{ route('contacto.update',$contacto) }}">
             {{ method_field('PATCH') }}
             @csrf
-            @include('persona.form')
+            @include('contacto.form')
             @include('include.boton')
         </form>
             

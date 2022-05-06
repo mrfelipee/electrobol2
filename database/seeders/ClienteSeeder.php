@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Cliente;
 
 class ClienteSeeder extends Seeder
 {
@@ -14,6 +15,7 @@ class ClienteSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Cliente::create(['persona_id'=>1]);
+        Cliente::create(['persona_id'=>2]);
     }
 }

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contacto;
+use App\Models\Tipocontacto;
+use App\Models\Persona;
 use App\Http\Requests\StoreContactoRequest;
 use App\Http\Requests\UpdateContactoRequest;
 use App\Http\Requests\RequestContacto;
@@ -15,13 +17,15 @@ class ContactoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($persona_id)
     {
-        //dd($persona_id);
-        $p=3;
-        $miscontactos=Contacto::where('persona_id',$p);
-        dd($p);
-        return view('contacto.listar',compact('p','miscontactos'));
+        $miscontactos=Contacto::join('tipocontactos','tipocontactos.id','contactos.tipocontacto_id')
+                        ->where('persona_id',$persona_id)
+                        ->select('contactos.id','contactos.contacto','contactos.detalle','tipocontactos.tipo')
+                        ->get();
+        //dd($miscontactos);
+        $persona=Persona::findOrFail($persona_id);
+        return view('contacto.listar',compact('persona_id','persona','miscontactos'));
 
     }
 
@@ -42,9 +46,10 @@ class ContactoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($persona_id)
     {
-        return view('contacto.crear');
+        $tipocontactos=Tipocontacto::get();
+        return view('contacto.crear',compact('tipocontactos','persona_id'));
     }
 
     /**
@@ -59,9 +64,11 @@ class ContactoController extends Controller
         $contacto= new Contacto();
         $contacto->contacto=$request->contacto;
         $contacto->detalle=$request->detalle;
-        $contacto->tipocontactos_id=$request->tipocontacto_id;
+        $contacto->tipocontacto_id=$request->tipocontacto_id;
         $contacto->persona_id=$request->persona_id;
         $contacto->save();
+
+        return redirect()->route('contacto.index',$contacto->persona_id);
     }
 
     /**
@@ -83,7 +90,9 @@ class ContactoController extends Controller
      */
     public function edit(Contacto $contacto)
     {
-        //
+        $tipocontactos=Tipocontacto::get();
+        $persona_id=$contacto->persona_id;
+        return view('contacto.editar',compact('contacto','tipocontactos','persona_id'));
     }
 
     /**
@@ -95,7 +104,13 @@ class ContactoController extends Controller
      */
     public function update(UpdateContactoRequest $request, Contacto $contacto)
     {
-        //
+        $contacto->contacto=$request->contacto;
+        $contacto->detalle=$request->detalle;
+        $contacto->tipocontacto_id=$request->tipocontacto_id;
+        //$contacto->persona_id=$request->persona_id;
+        $contacto->save();
+
+        return redirect()->route('contacto.index',$contacto->persona_id);
     }
 
     /**
@@ -104,8 +119,12 @@ class ContactoController extends Controller
      * @param  \App\Models\Contacto  $contacto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contacto $contacto)
+    public function destroy($contacto)
     {
-        //
+        // dd($contacto);
+        $contacto=Contacto::findOrFail($contacto);
+        $persona_id=$contacto->persona_id;
+        $contacto->delete();
+        //return redirect()->route('contacto.index',$persona_id);
     }
 }

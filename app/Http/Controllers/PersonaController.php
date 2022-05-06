@@ -53,17 +53,17 @@ class PersonaController extends Controller
             $tecnico=new Tecnico();
             $tecnico->persona_id=$persona->id;
             $tecnico->save();
-             
         }
         if( $request->rol=='cliente'){
             $cliente=new Cliente();
             $cliente->persona_id=$persona->id;
             $cliente->save();
-            return redirect()->route('persona.index');
+            //return redirect()->route('persona.index');
         }
 
+        $persona_id=$persona->id;
         $tipocontactos=Tipocontacto::get();
-        return view('contacto.crear',compact('persona','tipocontactos'));
+        return view('contacto.crear',compact('persona','tipocontactos','persona_id'));
 
     }
 

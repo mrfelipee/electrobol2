@@ -1,0 +1,206 @@
+
+
+
+body {
+  margin: 0;
+}
+
+div.table-title {
+   display: block;
+  margin: auto;
+  max-width: 600px;
+  
+  width: 100%;
+}
+
+.table-title h3 {
+   color: #fafafa;
+   font-size: 20px;
+   font-weight:300;
+   font-style:normal;
+   font-family: helvetica, arial, sans-serif, Montserrat;
+   text-transform:uppercase;
+}
+
+
+
+/*** Table Styles **/
+
+.table-fill {
+  background: white;
+  border-radius:3px;
+  border-collapse: collapse;
+  margin: auto;
+  width: 100%;
+}
+
+
+.table{
+  border:1px solid #C1C3D1;
+  position:absolute;
+}
+ 
+th {
+  color:#39393a;;
+  border:1px solid #9ea7af;
+  
+  font-size:14px;
+  font-weight: bold;
+
+  text-align:center;
+  vertical-align:middle;
+  background-color:gray;
+}
+
+th:first-child {
+  border-top-left-radius:3px;
+}
+ 
+th:last-child {
+  border-top-right-radius:3px;
+  border-right:none;
+}
+  
+tr {
+  border-top: 1px solid #d1d1d1;
+  border-bottom-color: 1px solid #C1C3D1;
+  color:#1f1e1e;
+  font-size:16px;
+}
+
+tr:first-child {
+  border-top:none;
+}
+
+tr:last-child {
+  border-bottom:none;
+}
+ 
+.table tr:nth-child(odd) td {
+  background:#EBEBEB;
+}
+ 
+.table tr:nth-child(odd):hover td {
+  background:#4E5066;
+}
+
+tr:last-child td:first-child {
+  border-bottom-left-radius:3px;
+}
+ 
+tr:last-child td:last-child {
+  border-bottom-right-radius:3px;
+}
+ 
+td {
+  background:#FFFFFF;
+  text-align:center;
+  vertical-align:middle;
+  font-size:15px;
+  font-weight:300;
+  border-right: 1px solid #C1C3D1;
+  border-left: 1px solid #C1C3D1;
+  border-top: 1px solid #C1C3D1;
+  border-bottom: 1px solid #C1C3D1;
+  width: auto;
+}
+
+td:last-child {
+  border-right: 0px;
+}
+
+th.text-left {
+  text-align: left;
+}
+
+th.text-center {
+  text-align: center;
+}
+
+th.text-right {
+  text-align: right;
+}
+
+td.text-left {
+  text-align: left;
+}
+
+td.text-center {
+  text-align: center;
+}
+
+td.text-right {
+  text-align: right;
+}
+
+
+
+
+.titulos{
+  letter-spacing:0.2em;
+  color: #375f7a;
+}
+
+.cuadros { 
+  width: 25%; 
+  padding: 10px;
+  float:left;
+  height:10%;
+  color:gray;
+  font-size: 0.7em;
+}
+.logo { 
+  width: 20%;
+  float: left;
+  height:10%;
+}
+.divencabezado{
+  position: relative;
+  
+}
+.tabla{
+  padding: auto;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+hr {
+  height: 3px;
+  background-color: #26baa5;
+  top: 8.5%;
+  width: 100%;
+  position: absolute;
+  border:none;
+  margin: none;
+}
+.inscripcion{
+  top:7.2%; 
+  font-size:1em;
+  position: absolute;
+  float: right;
+}
+.datos{
+  top:14.5%;
+  position: absolute;
+
+}
+.personal{
+  float:left;
+  width: 40%;
+}
+.inscripciondata{
+  float:left;
+  width: 20%;
+}
+.academico{
+  float:left;
+  width: 40%;
+}
+.cuadrosdatos { 
+  float:left;
+  height:8.5%;
+  padding-left: 0.5em;;
+  color:gray;
+  font-size: 0.7em;
+  border-left: solid 0.05em #26bbaa;
+}

@@ -10,7 +10,7 @@
         <option value="" > seleccione Tipocontacto</option>
         @foreach ($tipocontactos as $tipocontacto)
             @isset($contacto)     
-                <option  value="{{$tipocontacto->id}}" {{$contacto->id==$contacto->tipocontacto_id ? 'selected':''}}>{{$tipocontacto->tipo}}</option>     
+                <option  value="{{$tipocontacto->id}}" {{$tipocontacto->id==$contacto->tipocontacto_id ? 'selected':''}}>{{$tipocontacto->tipo}}</option>     
             @else
                 <option value="{{ $tipocontacto->id }}" {{ old('tipocontacto_id') == $tipocontacto->id ? 'selected':'' }} >{{ $tipocontacto->tipo }}</option>
             @endisset 
@@ -19,7 +19,7 @@
     <label for="floatingInput">ID</label>
 </div>
 
-<input hidden  type="text" name="persona_id" id="" value="{{ $persona->id }}">
+<input hidden  type="text" name="persona_id" id="" value="{{ $persona_id }}">
 
 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
     @if($errors->has('contacto'))

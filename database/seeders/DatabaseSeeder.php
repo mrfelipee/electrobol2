@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
+
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -17,10 +19,12 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         $this->call([
             TipocontactoSeeder::class,
-        ]);
-
-        $this->call([
+            TipoarticuloSeeder::class,
             PersonaSeeder::class,
+            MarcaSeeder::class,
+            TipopagoSeeder::class,
+            ClienteSeeder::class,
+            TecnicoSeeder::class,
         ]);
     }
 }

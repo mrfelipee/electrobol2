@@ -7,7 +7,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>PERSONAS</h1>
+    <h1>CLIENTES</h1>
 @stop
 
 @section('content')
@@ -57,8 +57,6 @@
                     {
                         "serverSide": true,
                         "responsive":true,
-                    
-
                         "ajax": "{{ url('api/personas') }}",
                         "columns": [
                             {"data": 'id',name:"id"},

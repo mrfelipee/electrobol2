@@ -234,6 +234,37 @@ return [
             'icon' => 'fas fa-users',
         ],
         [
+            'text' => 'Tecnicos',
+            'url'  => 'tecnicos',
+            'icon' => 'fas fa-users',
+        ],
+        [
+            'text' => 'Marcas',
+            'url'  => 'marcas',
+            'icon' => 'fas fa-users',
+        ],
+        [
+            'text' => 'Articulo',
+            'url'  => 'articulos',
+            'icon' => 'fas fa-users',
+        ],
+        [
+            'text' => 'Reparación',
+            'url'  => 'reparacions',
+            'icon' => 'fas fa-users',
+        ],
+        [
+            'text' => 'Repuestos',
+            'url'  => 'repuestos',
+            'icon' => 'fas fa-users',
+        ],
+        [
+            'text' => 'Pagos',
+            'url'  => 'pagos',
+            'icon' => 'fas fa-users',
+        ],
+
+        [
             'text' => 'change_password',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',

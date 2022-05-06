@@ -12,4 +12,8 @@ class Tecnico extends Model
     {
         return $this->belongsTo(Persona::class);
     } 
+    public function reparaciones()
+    {
+        return $this->hasMany(Reparacion::class);
+    }
 }
